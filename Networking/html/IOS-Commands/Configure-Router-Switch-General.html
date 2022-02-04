@@ -16,7 +16,72 @@
             </nav>
         </header>
         <main>
-            
+            <h1>Configuring Router/Switch Password for Console port and Telnet port in Device (config) #</h1>
+            <!-- CSS Code: Place this code in the document's head (between the 'head' tags) -->
+            <style>
+                table.GeneratedTable {
+                width: 100%;
+                background-color: #ffffff;
+                border-collapse: collapse;
+                border-width: 2px;
+                border-color: #000000;
+                border-style: solid;
+                color: #000000;
+                }
+                
+                table.GeneratedTable td, table.GeneratedTable th {
+                border-width: 2px;
+                border-color: #000000;
+                border-style: solid;
+                padding: 3px;
+                }
+                
+                table.GeneratedTable thead {
+                background-color: #00ff40;
+                }
+            </style>
+            <table class="GeneratedTable">
+            <thead>
+                <tr>
+                <th>Command</th>
+                <th>Explanation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hostname(config)# line console 0</td>
+                    <td>Enters console config mode (use console when first configuring device)</td>
+                </tr>
+                <tr>
+                    <td>Hostname(config)# password password</td>
+                    <td>Set password for console or Telnet</td>
+                </tr>
+                <tr>
+                    <td>Hostname(config)# login</td>
+                    <td>Enable password checking a</td>
+                </tr>
+                <tr>
+                    <td>Hostname(config)# logging synchronous</td>
+                    <td>Stops console updates interrupting typing</td>
+                </tr>
+                <tr>
+                    <td>Hostname(config)# exec-timeout 10</td>
+                    <td>Logs user out if no activity for 10 minutes</td>
+                </tr>
+                <tr>
+                    <td>Hostname(config)# line vty 0 4</td>
+                    <td>Enters Telnet config mode</td>
+                </tr>
+                <tr>
+                    <td>Hostname(config)# password password</td>
+                    <td>Set password for console or Telnet</td>
+                </tr>
+                <tr>
+                    <td>Hostname(config)# login</td>
+                    <td>Enable password checking at login</td>
+                </tr>
+            </tbody>
+            </table>     
         </main>
         <footer>
             
