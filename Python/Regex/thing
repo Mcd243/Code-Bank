@@ -1,0 +1,41 @@
+"""Script to calculate Coursework marks needed
+   to pass the module and to get a merit
+   CSN08114/CSN08414, Nov 2021
+"""
+import sys
+
+
+QUIZ_MAX = 4  # maximum number of quiz marks
+QUIZ_CONTRIBUTE = 3  # best n quizzes that contribute
+QUIZ_MAX_MARKS = 12  # max marks for each quiz
+PF_WEIGHT = 0.4  # weight of portfolio
+CW_MAX_MARKS = 40  # max marks for CW
+CW_WEIGHT = 0.6  # CW weight
+
+pf_marks = []  # for all portfolio marks
+print("To start, please enter your marks for each portfolio quiz.")
+print("If you don't know the mark, you can enter an estimate.")
+print("Enter 0 for quizzes you haven't done")
+for quiz in range(QUIZ_MAX):
+    pf_marks.append(float(input(f"Enter the marks for Quiz {quiz+1}: ")))
+print("Thank you")
+pf_marks.sort(reverse=True)
+if pf_marks[0] <= QUIZ_MAX_MARKS:
+    pf_total = sum(pf_marks[:QUIZ_CONTRIBUTE])
+    pf_percent = pf_total / (QUIZ_MAX_MARKS*QUIZ_CONTRIBUTE)
+
+    print(f"For the whole portfolio, your overall mark is {pf_percent*100:2.1f}%.")
+
+    needed_perc = (0.4 - pf_percent*PF_WEIGHT)/CW_WEIGHT
+    merit_perc = (0.65 - pf_percent*PF_WEIGHT)/CW_WEIGHT
+    needed = needed_perc * CW_MAX_MARKS + 0.1  # add 0.1 to avoid rounding issues
+
+    # print(f"{needed_perc=}")
+    print(f"To pass the module (40%), you need {needed:2.1f} marks for the CW.")
+    if merit_perc<=1:
+        print(f"To get a merit (65%), you need {merit_perc*CW_MAX_MARKS:2.1f} marks for the CW.")
+
+else:
+    print(f"You have entered an invalid quiz score. The maximum for one quiz is {QUIZ_MAX_MARKS}.")
+    print("Exiting. Please try again")
+
