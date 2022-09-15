@@ -1,0 +1,97 @@
+Linux Networking Tools
+-------------------------
+
+ifconfig & iwconfig do not persist after reboot!!!
+
+ifconfig		-interface configuration
+	 -a		-view all interfaces active and inactive
+
+iwcofig			-wireless card configuration
+	
+ip address show		-similar to ifconfig
+
+lspci			-list pci slot devices
+
+nm-tool			-network manager tool
+
+nmcli			-also a network management tool
+
+route			-check the man pages
+	-n		-display the kernel IP routing table 			(available networks, gateway and interface)
+
+dhclient		-renew IP subnet and dfault gateway using the 			dhcp server
+			-dhclient -[option] [network device name]
+			-dhclient -v eth0	v=verbose
+ping [-option] [URL]	-check connectivity
+
+ping -c 3 google.com	--c=count 3 times
+
+mtr [URL]		-My Tracerout-trace the route used by data 			packets
+
+nslookup 		-DNS lookup. Nameserver that resolves the URL
+			and some server addresses.
+nslookup
+>google.com
+
+iptraf			-ip traffic monitor
+apt-cache search iptraf
+apt-get install iptraf
+sudo iptraf
+
+
+
+
+CHANGE MAC AND IP ADDRESS
+---------------------------
+
+sudo su
+
+ifcofig eth0		-show the interface configuration for eth0
+
+ifconfig eth0 down	-disable eth0
+
+ifconfig eth0 hw ether DE:C1:A5:51:F1:ED	-hw = hardware 			(MAC address) changes MAC address for eth0 			to DE:C1:A5:51:F1:ED
+
+ifconfig eth0 up	-enable eth0
+
+ifconfig eth0 192.168.5.1 subnet 255.255.255.0 broadcast 192.168.5.255		-sets the IP address subnet mask and 			broadcast address for eth0
+
+ifconfig eth0		-check the new configuration.
+
+========================================================
+it is now connected to the router but not the internet
+========================================================
+
+----------------------------------------------------------
+SET THE DEFAULT GATEWAY
+----------------------------------------------------------
+route			-can add a default gateway
+
+route add default gw {IP of gateway device}{network card}
+			-add the default gateway
+
+route add default gw 192.168.5.254 ath0 
+
+
+route del default gw {IP of gateway device}{network card}
+			-remove the default gateway
+
+---------------------------------------------------------
+SET THE DNS SERVER (public nameservers)
+---------------------------------------------------------
+
+DNS list lives in: /etc/resolv.conf
+
+nano /etc/resolv.conf	-open the config file in nano
+
+nameserver 208.67.222.22
+
+nameserver 156.154.70.1
+
+nameserver 156.154.71.1	-add DNS IP addresses in nano
+
+
+
+
+
+

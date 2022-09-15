@@ -1,0 +1,11 @@
+sudo apt-get install myapplication ---Used to install an application; ‘myapplication’ in this example
+
+sudo apt-get remove myapplication --- Used to ‘safely’ remove an application
+
+sudo apt-get update --- Used to update the repository on the local machine
+
+sudo apt-get upgrade --- Used to update the repository with upgrade information
+
+sudo apt-get dist-upgrade --- Used to update the repositories and system when upgrading the distribution version
+
+sudo apt-get help --- Used to obtain help on using APT

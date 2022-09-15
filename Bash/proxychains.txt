@@ -1,0 +1,21 @@
+Proxy Chains
+
+$locate proxychains
+
+$nano proxychains.conf
+
+-- uncomment Dynamic
+
+-- DNS??
+
+	--> Add proxys to [Proxy List]
+
+$proxychains firefox google.com
+
+$prxychains nmap -sT -p 80,443 217.160.0.69
+
+
+
+Google free proxy servers list
+
+
